@@ -35,15 +35,9 @@ def checkin(driver):
         wait = WebDriverWait(driver, 10)
         
         # 使用WebDriverWait等待元素可见
-        button1 = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[11]/div/span')))
         button2 = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/div[4]/ul/li[6]/div[1]/i')))
         
         # 检查button是否有效，可点击
-        if button1.is_enabled():
-            button1.click()
-        else:
-            raise RuntimeError("Button1 is disabled or not clickable")
-        time.sleep(3)
         if button2.is_enabled():
             button2.click()
         else:
