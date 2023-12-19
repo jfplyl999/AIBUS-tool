@@ -11,14 +11,14 @@ def login(driver, username, password, retry=0):
         raise ValueError('login failed.')
     
     print('login...')
-    url = 'https://www.aibusx.com/pages/login'
+    url = 'https://988660.cc/h5/index/login'
     driver.get(url)
-    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/div/div/div/div/form/button')))
-    driver.find_element_by_id('email').send_keys(username)
+    WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div[2]/div[3]/div[4]/button[1]')))
+    driver.find_element_by_id('unm').send_keys(username)
     time.sleep(0.1)
-    driver.find_element_by_id('auth-login-password').send_keys(password)
+    driver.find_element_by_id('pwd').send_keys(password)
     time.sleep(0.1)
-    driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/div/form/button').click()
+    driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[3]/div[4]/button[1]').click()
     try:
         # WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, ':r1:')))
         print('login succesfully.')
@@ -35,13 +35,19 @@ def checkin(driver):
         wait = WebDriverWait(driver, 10)
         
         # 使用WebDriverWait等待元素可见
-        button = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'MuiLoadingButton-root')))
+        button1 = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div[11]/div/span')))
+        button2 = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/div[4]/ul/li[6]/div[1]/i')))
         
         # 检查button是否有效，可点击
-        if button.is_enabled():
-            button.click()
+        if button1.is_enabled():
+            button1.click()
         else:
-            raise RuntimeError("Button is disabled or not clickable")
+            raise RuntimeError("Button1 is disabled or not clickable")
+        time.sleep(3)
+        if button2.is_enabled():
+            button2.click()
+        else:
+            raise RuntimeError("Button2 is disabled or not clickable")
         time.sleep(3)
         print('签到成功！')
     except Exception as e:
