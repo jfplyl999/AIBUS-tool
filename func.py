@@ -35,7 +35,7 @@ def checkin(driver):
         wait = WebDriverWait(driver, 10)
         
         # 使用WebDriverWait等待元素可见
-        button2 = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/div[4]/ul/li[6]/div[1]/i')))
+        button2 = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="v7"]/a/div[1]/img')))
         
         # 检查button是否有效，可点击
         if button2.is_enabled():
