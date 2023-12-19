@@ -20,7 +20,7 @@ def login(driver, username, password, retry=0):
     time.sleep(0.1)
     driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[3]/div[4]/button[1]').click()
     try:
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="v7"]/a/div[1]/img')))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="v7"]/a/div[1]/img')))
         print('login succesfully.')
     except:
         print('Retrying...')
